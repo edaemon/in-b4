@@ -3,11 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 
 import MessageForm from './components/MessageForm';
+import Header from './components/Header';
 
 class App extends Component {
   render() {
     return (
-      <MessageForm />
+      <div>
+        <Header />
+        <MessageForm />
+      </div>
     );
   }
 }
