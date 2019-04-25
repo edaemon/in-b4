@@ -1,5 +1,27 @@
 import React, { Component } from 'react';
-import DateTimePicker from 'react-datetime-picker';
+import styled from 'styled-components';
+import DateTimePicker from 'react-datetime-picker/dist/entry.nostyle';
+
+const Form = styled.form`
+    /* ... */
+`
+
+const TextArea = styled.textarea`
+    width: 100%;
+    height: 200px;
+`
+
+const StyledDateTimePicker = styled(DateTimePicker)`
+    /* ... */
+`
+
+const Submit = styled.input`
+    background-color: steelblue;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10%/20%;
+`
 
 class MessageForm extends React.Component {
     constructor(props) {
@@ -29,11 +51,11 @@ class MessageForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <textarea value={this.state.value} onChange={this.handleMessageChange} />
-                <DateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} />
-                <input type="submit" value="Submit" />
-            </form>
+            <Form onSubmit={this.handleSubmit}>
+                <TextArea value={this.state.value} onChange={this.handleMessageChange} />
+                <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} />
+                <Submit type="submit" value="Submit" />
+            </Form>
         );
     }
 }
