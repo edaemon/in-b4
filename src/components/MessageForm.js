@@ -11,6 +11,8 @@ const Form = styled.form`
 const TextArea = styled.textarea`
     width: 100%;
     height: 200px;
+    border: 2px solid lightgray;
+    border-radius: 4px;
     font-family: Arial, Helvetica, sans-serif;
 `
 
@@ -31,7 +33,8 @@ class MessageForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 'Enter message here',
+            value: '',
+            placeholder: 'Enter your message here',
             datetime: moment().add(1, 'hours').toDate(),
         }
 
@@ -56,7 +59,7 @@ class MessageForm extends React.Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
-                <TextArea value={this.state.value} onChange={this.handleMessageChange} />
+                <TextArea value={this.state.value} onChange={this.handleMessageChange} placeholder={this.state.placeholder}/>
                 <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
                     <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} />
                     <Submit type="submit" value="Submit" />

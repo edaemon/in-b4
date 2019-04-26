@@ -21,7 +21,6 @@ const Trigger = styled.button`
     color: white;
     padding: 10px;
     border-radius: 10%/20%;
-    margin: 10px;
 `
 
 class Header extends React.Component {
