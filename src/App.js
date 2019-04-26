@@ -7,8 +7,11 @@ import Header from './components/Header';
 
 const AppWrapper = styled.div`
   margin: auto;
-  max-width: 500px;
   font-family: Arial, Helvetica, sans-serif;
+  max-width: 50%;
+  @media (max-width: 700px) {
+    max-width: 90%;
+  }
 `;
 
 class App extends Component {
