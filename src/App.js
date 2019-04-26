@@ -8,6 +8,7 @@ import Header from './components/Header';
 const AppWrapper = styled.div`
   margin: auto;
   max-width: 500px;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 
 class App extends Component {

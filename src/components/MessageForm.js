@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import DateTimePicker from 'react-datetime-picker/dist/entry.nostyle';
+import FlexContainer from 'react-styled-flexbox';
+import moment from 'moment';
+import DateTimePicker from 'react-datetime-picker';
 
 const Form = styled.form`
     /* ... */
@@ -9,10 +11,12 @@ const Form = styled.form`
 const TextArea = styled.textarea`
     width: 100%;
     height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
 `
 
 const StyledDateTimePicker = styled(DateTimePicker)`
-    /* ... */
+    display: inline-flex;
+    position: relative;
 `
 
 const Submit = styled.input`
@@ -28,7 +32,7 @@ class MessageForm extends React.Component {
         super(props);
         this.state = {
             value: 'Enter message here',
-            datetime: new Date(),
+            datetime: moment().add(1, 'hours').toDate(),
         }
 
         this.handleDateTimeChange = this.handleDateTimeChange.bind(this);
@@ -53,8 +57,10 @@ class MessageForm extends React.Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <TextArea value={this.state.value} onChange={this.handleMessageChange} />
-                <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} />
-                <Submit type="submit" value="Submit" />
+                <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
+                    <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} />
+                    <Submit type="submit" value="Submit" />
+                </FlexContainer>
             </Form>
         );
     }
