@@ -1,0 +1,7 @@
+[Settings]
+ID = "in-b4"
+
+[build]
+publish = "build/"
+command = "npm run build"
+functions = "src/functions/"
