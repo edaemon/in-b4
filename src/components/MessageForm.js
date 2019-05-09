@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import FlexContainer from 'react-styled-flexbox';
 import moment from 'moment';
+import axios from 'axios';
+import FlexContainer from 'react-styled-flexbox';
 import DateTimePicker from 'react-datetime-picker';
 
 const Form = styled.form`
@@ -52,8 +53,16 @@ class MessageForm extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('Message value: ' + this.state.value + '; date-time: ' + this.state.datetime);
+        //alert('Message value: ' + this.state.value + '; date-time: ' + this.state.datetime);
+        this.fetchMessageSubmission();
         event.preventDefault();
+    }
+
+    fetchMessageSubmission() {
+        axios.get("/.netlify/functions/example")
+        .then(function (response){
+            console.log(response);
+        })
     }
 
     render() {
