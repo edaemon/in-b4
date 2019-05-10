@@ -8,7 +8,10 @@
 
 # production
 /build
-/functions/build
+/functions/build/*
+
+# keep function build folder
+!/functions/build/.gitkeep
 
 # misc
 .DS_Store
