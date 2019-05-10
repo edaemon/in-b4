@@ -59,7 +59,7 @@ class MessageForm extends React.Component {
     }
 
     fetchMessageSubmission() {
-        axios.get("/.netlify/functions/example")
+        axios.get("/.netlify/functions/submitmessage")
         .then(function (response){
             console.log(response);
         })

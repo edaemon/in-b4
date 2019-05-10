@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "faunadb": "^2.6.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-datetime-picker": "^2.3.0",
