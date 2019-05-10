@@ -3,5 +3,5 @@ ID = "in-b4"
 
 [build]
 publish = "build/"
-command = "npm run build"
+command = "npm run build && netlify-lambda build functions/src"
 functions = "functions/build/"
