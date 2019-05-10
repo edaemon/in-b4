@@ -1,7 +1,14 @@
 import faunadb from 'faunadb';
 import moment from 'moment';
 
-exports.handler = async(event, context) => {
+/* Set up the faunaDB client with envvar secret */
+const query = faunadb.query;
+const client = new faunadb.Client({
+    secret: process.env.FAUNADB_SERVER_SECRET
+});
+
+/* Export the function as required handler */
+exports.handler = function(event, context, callback) {
     console.log("starting");
     /* Require POST method */
     if (event.httpMethod !== "POST") {
