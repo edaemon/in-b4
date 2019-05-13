@@ -45,7 +45,7 @@ class MessageForm extends React.Component {
     }
 
     handleMessageChange(event) {
-        this.setState({message: event.target.message});
+        this.setState({message: event.target.value});
     }
 
     handleDateTimeChange(datetime) {
