@@ -2,7 +2,6 @@ import faunadb from 'faunadb';
 import moment from 'moment';
 
 exports.handler = async(event, context) => {
-    console.log("starting");
     /* Require POST method */
     if (event.httpMethod !== "POST") {
         return { statusCode: 405, body: "Method Not Allowed" };

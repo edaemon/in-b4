@@ -34,7 +34,7 @@ class MessageForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
+            message: '',
             placeholder: 'Enter your message here',
             datetime: moment().add(1, 'hours').toDate(),
         }
@@ -45,7 +45,7 @@ class MessageForm extends React.Component {
     }
 
     handleMessageChange(event) {
-        this.setState({value: event.target.value});
+        this.setState({message: event.target.message});
     }
 
     handleDateTimeChange(datetime) {
@@ -53,13 +53,16 @@ class MessageForm extends React.Component {
     }
 
     handleSubmit(event) {
-        //alert('Message value: ' + this.state.value + '; date-time: ' + this.state.datetime);
+        //alert('Message message: ' + this.state.message + '; date-time: ' + this.state.datetime);
         this.fetchMessageSubmission();
         event.preventDefault();
     }
 
     fetchMessageSubmission() {
-        axios.get("/.netlify/functions/submitmessage")
+        axios.post("/.netlify/functions/submitmessage", {
+            message: this.state.message,
+            reveal: this.state.datetime
+        })
         .then(function (response){
             console.log(response);
         })
@@ -68,7 +71,7 @@ class MessageForm extends React.Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
-                <TextArea value={this.state.value} onChange={this.handleMessageChange} placeholder={this.state.placeholder}/>
+                <TextArea value={this.state.message} onChange={this.handleMessageChange} placeholder={this.state.placeholder}/>
                 <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
                     <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} />
                     <Submit type="submit" value="Submit" />
