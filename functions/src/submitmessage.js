@@ -26,7 +26,7 @@ exports.handler = async(event, context) => {
     console.log("Reveal: " + reveal);
 
     /* Construct the faunaDB query */
-    client.query(
+    return client.query(
         q.Create(
             q.Class("messages"),
             { data: {
