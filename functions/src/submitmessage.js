@@ -34,7 +34,7 @@ exports.handler = async(event, context) => {
     ).then((response) => {
         console.log("success", response);
         const path = response.ref.id;
-        return { statusCode: 303, location: "/" + path };
+        return { statusCode: 303, headers: { "Location": "/" + path }};
     }).catch((error) => {
         console.log("error", error);
         return { statusCode: 500, body: "Error: " + error };
