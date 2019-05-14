@@ -30,8 +30,8 @@ exports.handler = async(event, context) => {
         q.Create(
             q.Class("messages"),
             { data: {
-                message: message,
-                reveal: reveal
+                message: String(message),
+                reveal: String(reveal)
             }}
         )
     ).then((response) => {
