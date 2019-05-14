@@ -22,9 +22,6 @@ exports.handler = async(event, context) => {
         return { statusCode: 400, body: "Bad Request" };
     }
 
-    console.log("Message: " + message);
-    console.log("Reveal: " + reveal);
-
     /* Construct the faunaDB query */
     return client.query(
         q.Create(
@@ -36,7 +33,8 @@ exports.handler = async(event, context) => {
         )
     ).then((response) => {
         console.log("success", response);
-        return { statusCode: 200, body: "Success!" };
+        const path = response.ref.id;
+        return { statusCode: 200, body: String(path) + response.ref };
     }).catch((error) => {
         console.log("error", error);
         return { statusCode: 500, body: "Error: " + error };
