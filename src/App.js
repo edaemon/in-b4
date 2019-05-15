@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 
 import MessageForm from './components/MessageForm';
@@ -19,7 +20,10 @@ class App extends Component {
     return (
       <AppWrapper>
         <Header />
-        <MessageForm />
+        <Switch>
+          <Route exact path="/" component={MessageForm} />
+          <Redirect to="/" />
+        </Switch>
       </AppWrapper>
     );
   }
