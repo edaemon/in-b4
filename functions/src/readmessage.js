@@ -12,8 +12,7 @@ exports.handler = async(event, context) => {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
 
-    const data = JSON.parse(event.body);
-    const id = data.id;
+    const id = event.path;
 
     /* Verify the id is an integer */
     if (!id === parseInt(id, 10)) {
