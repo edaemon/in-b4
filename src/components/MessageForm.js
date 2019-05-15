@@ -65,6 +65,7 @@ class MessageForm extends React.Component {
         })
         .then(function (response){
             console.log(response);
+            window.location.href = response.headers.location;
         })
     }
 
