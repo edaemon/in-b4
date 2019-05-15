@@ -31,15 +31,13 @@ exports.handler = async(event, context) => {
         /* Retrieve the message info */
         const message = response.data.message;
         const reveal = moment(response.data.reveal);
+        var responseData = { reveal: reveal };
         console.log("Message: " + message);
         console.log("Reveal: " + reveal);
         /* Send the message only if the reveal date has passed */
         if (reveal.isBefore(moment())) {
             console.log("Reveal time has passed");
-            const responseData = { message: message, reveal: reveal };
-        } else {
-            console.log("Reveal time has NOT passed");
-            const responseData = { reveal: reveal };
+            responseData = { message: message, reveal: reveal };
         }
         return { statusCode: 200, body: JSON.stringify(responseData) };
     }).catch((error) => {
