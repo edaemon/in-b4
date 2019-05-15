@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 
 import MessageForm from './components/MessageForm';
+import MessageDisplay from './components/MessageDisplay';
 import Header from './components/Header';
 
 const AppWrapper = styled.div`
@@ -22,6 +23,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={MessageForm} />
+          <Route path="/:id" component={MessageDisplay} />
           <Redirect to="/" />
         </Switch>
       </AppWrapper>
