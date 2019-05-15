@@ -28,7 +28,7 @@ exports.handler = async(event, context) => {
             q.Class("messages"),
             { data: {
                 message: String(message),
-                reveal: String(reveal)
+                reveal: reveal.toISOString()
             }}
         )
     ).then((response) => {
