@@ -28,12 +28,21 @@ exports.handler = async(event, context) => {
             )
         )
     ).then((response) =>{
+        /* Retrieve the message info */
         const message = response.data.message;
         const reveal = moment(response.data.reveal);
-        /* Send the message only if the reveal date has passed */
         console.log("Message: " + message);
         console.log("Reveal: " + reveal);
+        /* Send the message only if the reveal date has passed */
+        if (reveal.isAfter(moment())) {
+            const data = { message: message, reveal: reveal };
+        } else {
+            const data = { reveal: reveal };
+        }
+        return { statusCode: 200, body: JSON.stringify(data) };
     }).catch((error) => {
-
+        /* Log the error and return a 500 */
+        console.log("Retrieval error: " + error);
+        return { statusCode: 500, body: "Error: " + error };
     });
-}
+};
