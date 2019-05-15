@@ -32,13 +32,13 @@ exports.handler = async(event, context) => {
             }}
         )
     ).then((response) => {
-        console.log("success", response);
-        const path = response.ref.id;
-        return { statusCode: 201, headers: { "Location": "/" + path }};
+        /* Log the id and return a 201 with the id as the location header */
+        const id = response.ref.id;
+        console.log("Message created: " + id);
+        return { statusCode: 201, headers: { "Location": "/" + id }};
     }).catch((error) => {
-        console.log("error", error);
+        /* Log the error and return a 500 */
+        console.log("Submission error: " + error);
         return { statusCode: 500, body: "Error: " + error };
-    })
-
-    /* Redirect to the viewing page for the message */
+    });
 };
