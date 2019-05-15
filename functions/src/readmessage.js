@@ -13,6 +13,7 @@ exports.handler = async(event, context) => {
     }
 
     const id = event.path;
+    console.log("ID: " + id);
 
     /* Verify the id is an integer */
     if (!id === parseInt(id, 10)) {
