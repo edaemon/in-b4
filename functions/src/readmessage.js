@@ -35,11 +35,11 @@ exports.handler = async(event, context) => {
         console.log("Reveal: " + reveal);
         /* Send the message only if the reveal date has passed */
         if (reveal.isAfter(moment())) {
-            const data = { message: message, reveal: reveal };
+            const responseData = { message: message, reveal: reveal };
         } else {
-            const data = { reveal: reveal };
+            const responseData = { reveal: reveal };
         }
-        return { statusCode: 200, body: JSON.stringify(data) };
+        return { statusCode: 200, body: JSON.stringify(responseData) };
     }).catch((error) => {
         /* Log the error and return a 500 */
         console.log("Retrieval error: " + error);
