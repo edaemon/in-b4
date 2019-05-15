@@ -16,6 +16,7 @@ exports.handler = async(event, context) => {
     const data = JSON.parse(event.body);
     const message = data.message;
     const reveal = moment(data.reveal);
+    const created = moment();
 
     /* Verify the submitted data is valid */
     if (!typeof message === 'string' || !message instanceof String || !reveal.isValid()) {
@@ -28,7 +29,8 @@ exports.handler = async(event, context) => {
             q.Class("messages"),
             { data: {
                 message: String(message),
-                reveal: reveal.toISOString()
+                reveal: reveal.toISOString(),
+                created: created.toISOString()
             }}
         )
     ).then((response) => {
