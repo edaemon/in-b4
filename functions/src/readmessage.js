@@ -12,7 +12,8 @@ exports.handler = async(event, context) => {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
 
-    const id = event.path;
+    const pathElements = event.path.split("/");
+    const id = pathElements[pathElements.length - 1];
     console.log("ID: " + id);
 
     /* Verify the id is an integer */

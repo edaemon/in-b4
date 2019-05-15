@@ -16,7 +16,7 @@ class MessageDisplay extends React.Component {
     }
 
     componentDidMount() {
-        var id = window.location.pathname.split("/")[0];
+        var id = window.location.pathname.split("/")[1];
         axios.get("/.netlify/functions/readmessage/" + id)
         .then(function (response) {
             this.state.reveal = response.date.reveal;
