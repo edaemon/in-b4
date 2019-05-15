@@ -14,15 +14,15 @@ exports.handler = async(event, context) => {
 
     /* Parse the submitted data */
     const data = JSON.parse(event.body);
-    const message = data['message'];
-    const reveal = moment(data['reveal']);
+    const message = data.message;
+    const reveal = moment(data.reveal);
 
     /* Verify the submitted data is valid */
     if (!typeof message === 'string' || !message instanceof String || !reveal.isValid()) {
         return { statusCode: 400, body: "Bad Request" };
     }
 
-    /* Construct the faunaDB query */
+    /* Construct and submit the faunaDB query */
     return client.query(
         q.Create(
             q.Class("messages"),
