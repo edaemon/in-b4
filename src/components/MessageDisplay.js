@@ -20,6 +20,8 @@ const MessageBlock = styled.textarea`
     border-radius: 4px;
     pointer-events: none;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: ${(props) => props.revealed ? "none" : "lightgray"};
+    text-align: ${(props) => props.revealed ? "left" : "center"};
 `
 
 class MessageDisplay extends React.Component {
@@ -29,7 +31,7 @@ class MessageDisplay extends React.Component {
             reveal: moment().toString,
             created: moment().toString,
             revealed: false,
-            message: ''
+            message: 'This message has not been revealed yet.'
         }
     }
 
