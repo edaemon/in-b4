@@ -19,6 +19,7 @@ const MessageBlock = styled.textarea`
     border: 2px solid lightgray;
     border-radius: 4px;
     pointer-events: none;
+    font-family: Arial, Helvetica, sans-serif;
 `
 
 class MessageDisplay extends React.Component {
@@ -36,8 +37,10 @@ class MessageDisplay extends React.Component {
         var id = window.location.pathname.split("/")[1];
         axios.get("/.netlify/functions/readmessage/" + id)
         .then((response) => {
-            this.setState({reveal: response.data.reveal});
-            this.setState({created: response.data.created});
+            const reveal = moment(response.data.reveal).format("llll");
+            const created = moment(response.data.created).format("llll");
+            this.setState({reveal});
+            this.setState({created});
             if ("message" in response.data) {
                 this.setState({revealed: true});
                 this.setState({message: response.data.message});
