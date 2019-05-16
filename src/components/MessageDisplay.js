@@ -55,11 +55,12 @@ class MessageDisplay extends React.Component {
                 this.setState({revealed: true});
                 this.setState({message: response.data.message});
             }
+            this.setState({loading: false});
         })
         .catch((error) => {
             console.log("ERROR: " + error);
+            this.setState({loading: false});
         });
-        this.setState({loading: false});
     }
 
     render() {
