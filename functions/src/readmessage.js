@@ -14,7 +14,6 @@ exports.handler = async(event, context) => {
 
     const pathElements = event.path.split("/");
     const id = pathElements[pathElements.length - 1];
-    console.log("ID: " + id);
 
     /* Verify the id is an integer */
     if (!id === parseInt(id, 10)) {
@@ -39,6 +38,7 @@ exports.handler = async(event, context) => {
         if (reveal.isBefore(moment())) {
             responseData.message = message;
         }
+        console.log("Retrieved: " + id);
         return { statusCode: 200, body: JSON.stringify(responseData) };
     }).catch((error) => {
         /* Log the error and return a 500 */
