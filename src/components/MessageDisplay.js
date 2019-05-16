@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import FlexContainer from 'react-styled-flexbox';
 import moment from 'moment';
 import axios from 'axios';
+import { DoubleBounce } from 'styled-spinkit';
 
 const MessageBlock = styled.textarea`
     width: 100%;
@@ -13,6 +14,7 @@ const MessageBlock = styled.textarea`
     font-family: Arial, Helvetica, sans-serif;
     background-color: ${props => props.revealed ? "none" : "lightgray"};
     text-align: ${props => props.revealed ? "left" : "center"};
+    visibility: ${props => props.loading ? "hidden" : "visible"};
 `
 
 const MessageInfoBlock = styled.div`
@@ -22,6 +24,11 @@ const MessageInfoBlock = styled.div`
     border-radius: 2%/20%;
     padding: 10px;
     width: 35%;
+    visibility: ${props => props.loading ? "hidden" : "visible"};
+`
+
+const Loader = styled(DoubleBounce)`
+    display: ${props => props.loading ? "block" : "none"};
 `
 
 class MessageDisplay extends React.Component {
@@ -31,6 +38,7 @@ class MessageDisplay extends React.Component {
             reveal: moment().toString,
             created: moment().toString,
             revealed: false,
+            loading: true,
             message: 'This message has not been revealed yet.'
         }
     }
@@ -51,15 +59,17 @@ class MessageDisplay extends React.Component {
         .catch((error) => {
             console.log("ERROR: " + error);
         });
+        this.setState({loading: false});
     }
 
     render() {
         return(
             <div id="message-display">
-                <MessageBlock revealed={this.state.revealed} value={this.state.message} readonly />
+                <Loader size={100} color={"steelblue"} loading={this.state.loading} />
+                <MessageBlock revealed={this.state.revealed} loading={this.state.loading} value={this.state.message} readonly />
                 <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
-                    <MessageInfoBlock>Reveal: {this.state.reveal}</MessageInfoBlock>
-                    <MessageInfoBlock>Created: {this.state.created}</MessageInfoBlock>
+                    <MessageInfoBlock loading={this.state.loading}>Reveal: {this.state.reveal}</MessageInfoBlock>
+                    <MessageInfoBlock loading={this.state.loading}>Created: {this.state.created}</MessageInfoBlock>
                 </FlexContainer>
             </div>
         );
