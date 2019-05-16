@@ -4,15 +4,6 @@ import FlexContainer from 'react-styled-flexbox';
 import moment from 'moment';
 import axios from 'axios';
 
-const MessageInfoBlock = styled.div`
-    background-color: steelblue;
-    color: white;
-    border: none;
-    border-radius: 2%/20%;
-    padding: 10px;
-    width: 35%;
-`
-
 const MessageBlock = styled.textarea`
     width: 100%;
     height: 200px;
@@ -20,8 +11,17 @@ const MessageBlock = styled.textarea`
     border-radius: 4px;
     pointer-events: none;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: ${(props) => props.revealed ? "none" : "lightgray"};
-    text-align: ${(props) => props.revealed ? "left" : "center"};
+    background-color: ${props => props.revealed ? "none" : "lightgray"};
+    text-align: ${props => props.revealed ? "left" : "center"};
+`
+
+const MessageInfoBlock = styled.div`
+    background-color: steelblue;
+    color: white;
+    border: none;
+    border-radius: 2%/20%;
+    padding: 10px;
+    width: 35%;
 `
 
 class MessageDisplay extends React.Component {
@@ -56,7 +56,7 @@ class MessageDisplay extends React.Component {
     render() {
         return(
             <div id="message-display">
-                <MessageBlock value={this.state.message} readonly />
+                <MessageBlock revealed={this.state.revealed} value={this.state.message} readonly />
                 <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
                     <MessageInfoBlock>Reveal: {this.state.reveal}</MessageInfoBlock>
                     <MessageInfoBlock>Created: {this.state.created}</MessageInfoBlock>
