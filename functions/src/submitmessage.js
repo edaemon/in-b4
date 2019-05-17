@@ -23,6 +23,11 @@ exports.handler = async(event, context) => {
         return { statusCode: 400, body: "Bad Request" };
     }
 
+    /* Enforce reveal time limit */
+    if (reveal.isAfter(moment().add(1, 'week'))) {
+        return { statusCode: 400, body: "Reveal time may not be more than 1 week in the future!" }
+    }
+
     /* Construct and submit the faunaDB query */
     return client.query(
         q.Create(

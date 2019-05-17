@@ -80,7 +80,7 @@ class MessageForm extends React.Component {
             <Form onSubmit={this.handleSubmit}>
                 <TextArea value={this.state.message} onChange={this.handleMessageChange} placeholder={this.state.placeholder}/>
                 <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
-                    <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} />
+                    <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} max={moment().add(1, 'week').toDate()} />
                     <Submit type="submit" value="Submit" />
                 </FlexContainer>
             </Form>
