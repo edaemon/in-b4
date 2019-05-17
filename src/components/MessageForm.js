@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import moment from 'moment';
 import axios from 'axios';
 import FlexContainer from 'react-styled-flexbox';
-import DateTimePicker from 'react-datetime-picker';
+import { DateTimePicker } from 'react-widgets';
+import momentLocalizer from 'react-widgets-moment';
+import 'react-widgets/dist/css/react-widgets.css';
 
 const Form = styled.form`
     /* ... */
@@ -20,6 +22,7 @@ const TextArea = styled.textarea`
 const StyledDateTimePicker = styled(DateTimePicker)`
     display: inline-flex;
     position: relative;
+    padding-right: 10px;
 `
 
 const Submit = styled.input`
@@ -29,6 +32,9 @@ const Submit = styled.input`
     padding: 10px;
     border-radius: 10%/20%;
 `
+
+moment.locale("en");
+momentLocalizer();
 
 class MessageForm extends React.Component {
     constructor(props) {
