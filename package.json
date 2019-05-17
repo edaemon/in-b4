@@ -34,6 +34,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "netlify-lambda": "^1.4.7"
+    "netlify-lambda": "^1.4.9"
   }
 }
