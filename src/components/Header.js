@@ -7,8 +7,15 @@ const HeaderWrapper = styled.div`
     color: steelblue;
 `;
 
-const Title = styled.h1`
+const TitleBlock = styled.h1`
     /* ... */
+`
+
+const Title = styled.a`
+    text-decoration: none;
+    &:visited {
+        color: steelblue;
+    }
 `
 
 const StyledPopup = styled(Popup)`
@@ -28,9 +35,9 @@ class Header extends React.Component {
         return (
             <HeaderWrapper>
                 <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
-                    <Title>
-                        in-b4
-                    </Title>
+                    <TitleBlock>
+                        <Title href="/">in-b4</Title>
+                    </TitleBlock>
                     <StyledPopup trigger={<Trigger>What is this?</Trigger>} modal contentStyle={{ width: '400px' }}>
                         <span>
                             This is in-b4.com, where you can predict obvious or expected

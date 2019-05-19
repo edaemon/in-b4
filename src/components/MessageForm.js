@@ -81,7 +81,6 @@ class MessageForm extends React.Component {
         .then((response) => {
             console.log(response);
             window.location.href = response.headers.location;
-            this.setState({submitting: false});
         })
         .catch((error) => {
             alert(error.response.data);
