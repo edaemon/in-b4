@@ -28,6 +28,11 @@ exports.handler = async(event, context) => {
         return { statusCode: 400, body: "Reveal time may not be more than 1 week in the future!" }
     }
 
+    /* Enforce the character limit */
+    if (message.length > 1000) {
+        return { statusCode: 400, body: "Your message exceeds the length limit. How did you do that? And why?" }
+    }
+
     /* Construct and submit the faunaDB query */
     return client.query(
         q.Create(
@@ -46,6 +51,6 @@ exports.handler = async(event, context) => {
     }).catch((error) => {
         /* Log the error and return a 500 */
         console.log("Submission error: " + error);
-        return { statusCode: 500, body: "Error: " + error };
+        return { statusCode: 500, body: "Something went wrong! It's probably not your fault." };
     });
 };
