@@ -23,7 +23,7 @@ const MessageInfoBlock = styled.div`
     border: none;
     border-radius: 2%/20%;
     padding: 10px;
-    width: 35%;
+    width: 40%;
     visibility: ${props => props.loading ? "hidden" : "visible"};
 `
 
