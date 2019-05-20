@@ -18,6 +18,7 @@ const TextArea = styled.textarea`
     border: 2px solid lightgray;
     border-radius: 4px;
     font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
 `
 
 const StyledDateTimePicker = styled(DateTimePicker)`
@@ -93,7 +94,7 @@ class MessageForm extends React.Component {
             <Form onSubmit={this.handleSubmit}>
                 <TextArea value={this.state.message} onChange={this.handleMessageChange} placeholder={this.state.placeholder} maxLength="1000" />
                 <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
-                    <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} max={moment().add(1, 'week').toDate()} />
+                    <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} max={moment().add(1, 'week').toDate()} dropUp />
                     <Submit type="submit" value="Submit" loading={this.state.submitting} />
                     <Loader size={35} color={"steelblue"} loading={this.state.submitting} />
                 </FlexContainer>
