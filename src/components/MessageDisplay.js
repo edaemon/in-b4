@@ -22,11 +22,10 @@ const MessageInfoBlock = styled.div`
     background-color: steelblue;
     color: white;
     border: none;
-    border-radius: 2%/20%;
+    border-radius: 5px/5px;
     padding: 10px;
     max-width: 40%;
     text-align: center;
-    flex: 1 1 0;
     visibility: ${props => props.loading ? "hidden" : "visible"};
 `
 
@@ -38,8 +37,8 @@ class MessageDisplay extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            reveal: moment().toString,
-            created: moment().toString,
+            created: moment.toString,
+            reveal: moment.toString,
             revealed: false,
             loading: true,
             message: 'This message has not been revealed yet.'
@@ -71,9 +70,9 @@ class MessageDisplay extends React.Component {
             <div id="message-display">
                 <Loader size={100} color={"steelblue"} loading={this.state.loading} />
                 <MessageBlock revealed={this.state.revealed} loading={this.state.loading} value={this.state.message} readonly />
-                <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
-                    <MessageInfoBlock loading={this.state.loading}>Reveal: {this.state.reveal}</MessageInfoBlock>
+                <FlexContainer justifySpaceBetween={true}>
                     <MessageInfoBlock loading={this.state.loading}>Created: {this.state.created}</MessageInfoBlock>
+                    <MessageInfoBlock loading={this.state.loading}>Reveal: {this.state.reveal}</MessageInfoBlock>
                 </FlexContainer>
             </div>
         );
