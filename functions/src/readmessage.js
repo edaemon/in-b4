@@ -39,7 +39,7 @@ exports.handler = async(event, context) => {
             responseData.message = message;
         }
         console.log("Retrieved: " + id);
-        return { statusCode: 200, body: JSON.stringify(responseData) };
+        return { statusCode: 200, headers: {"Cache-Control": "public, max-age=60"}, body: JSON.stringify(responseData) };
     }).catch((error) => {
         /* Log the error and return a 500 */
         console.log("Retrieval error: " + error);
