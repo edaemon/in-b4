@@ -40,6 +40,8 @@ const Modal = styled(ReactModal)`
     }
 `
 
+Modal.setAppElement('body');
+
 class Header extends React.Component {
     constructor(props) {
         super(props);
