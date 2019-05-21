@@ -22,7 +22,7 @@ const MessageInfoBlock = styled.div`
     background-color: steelblue;
     color: white;
     border: none;
-    border-radius: 5px/5px;
+    border-radius: 5px;
     padding: 10px;
     max-width: 40%;
     text-align: center;

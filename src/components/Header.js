@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import FlexContainer from 'react-styled-flexbox';
-import Popup from 'reactjs-popup';
+import ReactModal from 'react-modal';
 
 const HeaderWrapper = styled.div`
     color: steelblue;
@@ -18,19 +18,47 @@ const Title = styled.a`
     }
 `
 
-const StyledPopup = styled(Popup)`
-    color: black;
-`
-
-const Trigger = styled.button`
+const ModalButton = styled.button`
     background-color: steelblue;
     border: none;
     color: white;
     padding: 10px;
-    border-radius: 5px/5px;
+    border-radius: 5px;
+`
+
+const Modal = styled(ReactModal)`
+    margin: auto;
+    overflow: auto;
+    text-align: center;
+    background-color: white;
+    padding: 5px;
+    max-width: 45%;
+    margin-top: 5%;
+    @media (max-width: 700px) {
+        max-width: 80%;
+        margin-top: 10%;
+    }
 `
 
 class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            modalOpen: false
+        }
+
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
+
+    handleOpenModal() {
+        this.setState({modalOpen: true});
+    }
+
+    handleCloseModal() {
+        this.setState({modalOpen: false});
+    }
+
     render() {
         return (
             <HeaderWrapper>
@@ -38,17 +66,18 @@ class Header extends React.Component {
                     <TitleBlock>
                         <Title href="/">in-b4</Title>
                     </TitleBlock>
-                    <StyledPopup trigger={<Trigger>What is this?</Trigger>} modal contentStyle={{ width: '400px' }}>
-                        <span>
-                            This is in-b4.com, where you can predict obvious or expected
-                            things. Simply enter a message, set a reveal time, and submit!
-                            Copy and paste the resulting link wherever you like. When the
+                    <ModalButton onClick={this.handleOpenModal}>Where am I?</ModalButton>
+                    <Modal isOpen={this.state.modalOpen}>
+                        <p>
+                            Welcome to in-b4.com, where you can predict obvious or expected
+                            things. Enter a message, set a reveal time, and submit!
+                            A URL will be created where you can view your message. When the
                             reveal time has passed, your message will be revealed, allowing
                             you and others to see how well you anticipated the outcome.
-                        </span>
-                    </StyledPopup>
+                        </p>
+                        <ModalButton onClick={this.handleCloseModal}>Close</ModalButton>
+                    </Modal>
                 </FlexContainer>
-
             </HeaderWrapper>
         );
     }
