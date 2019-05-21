@@ -12,6 +12,7 @@ const MessageBlock = styled.textarea`
     border-radius: 4px;
     pointer-events: none;
     font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
     background-color: ${props => props.revealed ? "none" : "lightgray"};
     text-align: ${props => props.revealed ? "left" : "center"};
     visibility: ${props => props.loading ? "hidden" : "visible"};
@@ -23,7 +24,9 @@ const MessageInfoBlock = styled.div`
     border: none;
     border-radius: 2%/20%;
     padding: 10px;
-    width: 40%;
+    max-width: 40%;
+    text-align: center;
+    flex: 1 1 0;
     visibility: ${props => props.loading ? "hidden" : "visible"};
 `
 
