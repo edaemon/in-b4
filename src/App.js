@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 
+import Header from './components/Header';
+import AboutPage from './components/AboutPage';
 import MessageForm from './components/MessageForm';
 import MessageDisplay from './components/MessageDisplay';
-import Header from './components/Header';
 
 const AppWrapper = styled.div`
   margin: auto;
@@ -23,6 +24,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={MessageForm} />
+          <Route exact path="/about" component={AboutPage} />
           <Route path="/:id" component={MessageDisplay} />
           <Redirect to="/" />
         </Switch>

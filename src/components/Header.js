@@ -13,7 +13,10 @@ const TitleBlock = styled.h1`
 
 const Title = styled.a`
     text-decoration: none;
-    &:visited {
+    :visited {
+        color: steelblue;
+    }
+    :link {
         color: steelblue;
     }
 `
@@ -24,6 +27,10 @@ const ModalButton = styled.button`
     color: white;
     padding: 10px;
     border-radius: 5px;
+
+    :focus {
+        outline: 0;
+    }
 `
 
 const Modal = styled(ReactModal)`
@@ -34,9 +41,17 @@ const Modal = styled(ReactModal)`
     padding: 5px;
     max-width: 45%;
     margin-top: 5%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: steelblue;
+    border-radius: 5px;
     @media (max-width: 700px) {
         max-width: 80%;
         margin-top: 10%;
+    }
+
+    :focus {
+        outline: 0;
     }
 `
 
@@ -76,6 +91,9 @@ class Header extends React.Component {
                             A URL will be created where you can view your message. When the
                             reveal time has passed, your message will be revealed, allowing
                             you and others to see how well you anticipated the outcome.
+                        </p>
+                        <p>
+                            If you want to learn more see the <a href="/about">About</a> page.
                         </p>
                         <ModalButton onClick={this.handleCloseModal}>Close</ModalButton>
                     </Modal>
