@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# in-b4
 
-## Available Scripts
+This is the code behind: https://in-b4.com
 
-In the project directory, you can run:
+In-b4 was created to explore React, Netlify Functions, and FaunaDB. You can read
+more about the process here: https://edaemon.net/posts/in-b4
 
-### `npm start`
+## Tech/tools involved
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [React](https://reactjs.org/)
+* [Netlify](https://www.netlify.com/)
+* [Netlify Functions](https://www.netlify.com/docs/functions/)
+* [FaunaDB](https://fauna.com/)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Setup
 
-### `npm test`
+If you want to replicate this (note the [GNU AGPLv3 license](https://github.com/edaemon/in-b4/blob/master/LICENSE)),
+you can do so following these steps:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Create a Netlify account
+2. Fork this repository, or clone/download it and add it to GitHub (or any other backend
+Netlify supports)
+3. Connect your Netlify account to the new repository
+4. Create a Fauna account
+5. Create a Fauna database, containing a class called `messages`
+6. Create a new database key with the `server` role
+7. Add this key to Netlify as an environment variable with the name `FAUNADB_SERVER_SECRET`
 
-### `npm run build`
+That should be all that's required. Note that some information will not match your version without changes.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Notes
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* This project was bootstrapped with [`create-react-app`](https://github.com/facebook/create-react-app)
+* Feel free to open an issue or report a problem here on GitHub
+* I can't make any guarantees about the quality of this code; it was my first time working with React and Fauna
