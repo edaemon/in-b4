@@ -7,10 +7,6 @@ const AboutInfoBlock = styled.div`
 `
 
 class AboutPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <AboutInfoBlock>
@@ -36,8 +32,9 @@ class AboutPage extends React.Component {
                 </p>
                 <p>
                     I created this site so I could learn about some technologies
-                    and tools I had not used before. If you'd like to read more about
-                    this project (or me), see this post about the process: "BLOG LINK"
+                    and tools I had not used before. If you'd like to know more about
+                    this project (or me), see this post about the process:&nbsp;
+                    <a href="https://edaemon.net/posts/in-b4">https://edaemon.net/posts/in-b4</a>
                 </p>
                 <p>
                     If you just want to see the code:&nbsp;
