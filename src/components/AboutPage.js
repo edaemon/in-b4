@@ -11,7 +11,7 @@ class AboutPage extends React.Component {
         return(
             <AboutInfoBlock>
                 <p>
-                    This is in-b4.com, a simple React app that allows you to enter a
+                    Welcome to in-b4.com, a simple React app that allows you to enter a
                     message and hide it for a set amount of time. Once that time passes,
                     the message will be revealed and visible to everyone. It's essentially
                     an implementation of the "<a href="https://www.urbandictionary.com/define.php?term=inb4">inb4</a>" 

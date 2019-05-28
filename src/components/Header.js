@@ -93,7 +93,7 @@ class Header extends React.Component {
                             you and others to see how well you anticipated the outcome.
                         </p>
                         <p>
-                            If you want to learn more see the <a href="/about">About</a> page.
+                            If you want to learn more please see the <a href="/about">About</a> page.
                         </p>
                         <ModalButton onClick={this.handleCloseModal}>Close</ModalButton>
                     </Modal>
