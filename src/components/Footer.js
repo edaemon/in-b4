@@ -9,7 +9,7 @@ const FooterBlock = styled.div`
     bottom: 50px;
     width: 50%;
     @media (max-width: 700px) {
-        width: 100%;
+        width: 90%;
     }
 `
 
