@@ -7,6 +7,7 @@ import Header from './components/Header';
 import AboutPage from './components/AboutPage';
 import MessageForm from './components/MessageForm';
 import MessageDisplay from './components/MessageDisplay';
+import TermsAndConditions from './components/TermsAndConditions';
 
 const AppWrapper = styled.div`
   margin: auto;
@@ -25,6 +26,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={MessageForm} />
           <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/terms" component={TermsAndConditions} />
           <Route path="/:id" component={MessageDisplay} />
           <Redirect to="/" />
         </Switch>
