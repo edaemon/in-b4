@@ -19,7 +19,6 @@ const TextArea = styled.textarea`
     border: 2px solid lightgray;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 10px;
 `
 
 const StyledDateTimePicker = styled(DateTimePicker)`
@@ -63,6 +62,16 @@ const ModalButton = styled.button`
     color: white;
     padding: 10px;
     border-radius: 5px;
+`
+
+const TermsAndConditions = styled.div`
+    color: gray;
+    text-align: right;
+    font-size: 60%;
+    margin-bottom: 4px;
+    @media (max-width: 700px) {
+        text-align: center;
+    }
 `
 
 moment.locale("en");
@@ -127,6 +136,9 @@ class MessageForm extends React.Component {
                     <ModalButton onClick={this.handleErrorModalClose}>Close</ModalButton>
                 </ErrorModal>
                 <TextArea value={this.state.message} onChange={this.handleMessageChange} placeholder={this.state.placeholder} maxLength="1000" />
+                <TermsAndConditions>
+                    By clicking 'Submit' you agree to the <a href="/terms">terms and conditions</a>.
+                </TermsAndConditions>
                 <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
                     <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} max={moment().add(1, 'week').toDate()} dropUp />
                     <Submit type="submit" value="Submit" loading={this.state.submitting} />
