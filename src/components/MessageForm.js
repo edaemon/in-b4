@@ -23,17 +23,22 @@ const TextArea = styled.textarea`
 
 const DateTimePickerBlock = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     padding: 2px;
     margin-right: 10px;
     color: white;
     background-color: steelblue;
     border-radius: 5px;
     text-align: center;
+    @media (max-width: 700px) {
+        flex-direction: column;
+    }
 `
 
 const RevealHint = styled.div`
-    /* */
+    margin-right: 5px;
+    margin-left: 5px;
 `
 
 const Submit = styled.input`
