@@ -83,7 +83,7 @@ class Header extends React.Component {
                     <TitleBlock>
                         <Title href="/">in-b4</Title>
                     </TitleBlock>
-                    <ModalButton onClick={this.handleOpenModal}>Where am I?</ModalButton>
+                    <ModalButton onClick={this.handleOpenModal}>Information</ModalButton>
                     <Modal isOpen={this.state.modalOpen}>
                         <p>
                             Welcome to in-b4.com, where you can predict obvious or expected
@@ -93,7 +93,7 @@ class Header extends React.Component {
                             you and others to see how well you anticipated the outcome.
                         </p>
                         <p>
-                            If you want to learn more please see the <a href="/about">About</a> page.
+                            If you want to learn more please see the full <a href="/about">About</a> page.
                         </p>
                         <ModalButton onClick={this.handleCloseModal}>Close</ModalButton>
                     </Modal>
