@@ -5,6 +5,7 @@ import './App.css';
 
 import Header from './components/Header';
 import AboutPage from './components/AboutPage';
+import Disclaimer from './components/Disclaimer';
 import MessageForm from './components/MessageForm';
 import MessageDisplay from './components/MessageDisplay';
 import TermsAndConditions from './components/TermsAndConditions';
@@ -27,6 +28,7 @@ class App extends Component {
           <Route exact path="/" component={MessageForm} />
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/terms" component={TermsAndConditions} />
+          <Route exact path="/disclaimer" component={Disclaimer} />
           <Route path="/:id" component={MessageDisplay} />
           <Redirect to="/" />
         </Switch>
