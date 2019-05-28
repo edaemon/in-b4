@@ -10,6 +10,7 @@ const FooterBlock = styled.div`
     width: 50%;
     @media (max-width: 700px) {
         width: 90%;
+        font-size: 60%;
     }
 `
 
