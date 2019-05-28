@@ -21,10 +21,19 @@ const TextArea = styled.textarea`
     font-family: Arial, Helvetica, sans-serif;
 `
 
-const StyledDateTimePicker = styled(DateTimePicker)`
-    display: inline-flex;
-    position: relative;
-    padding-right: 10px;
+const DateTimePickerBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    margin-right: 10px;
+    color: white;
+    background-color: steelblue;
+    border-radius: 5px;
+    text-align: center;
+`
+
+const RevealHint = styled.div`
+    /* */
 `
 
 const Submit = styled.input`
@@ -139,8 +148,13 @@ class MessageForm extends React.Component {
                 <TermsAndConditions>
                     By clicking 'Submit' you agree to the <a href="/terms">terms and conditions</a>.
                 </TermsAndConditions>
-                <FlexContainer justifySpaceBetween={true} itemsCenter={true}>
-                    <StyledDateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} max={moment().add(1, 'week').toDate()} dropUp />
+                <FlexContainer justifySpaceBetween={true} itemsFlexStart>
+                    <DateTimePickerBlock>
+                        <RevealHint>
+                            Reveal time
+                        </RevealHint>
+                        <DateTimePicker value={this.state.datetime} onChange={this.handleDateTimeChange} max={moment().add(1, 'week').toDate()} dropUp />
+                    </DateTimePickerBlock>
                     <Submit type="submit" value="Submit" loading={this.state.submitting} />
                     <SubmitLoader size={35} color={"steelblue"} loading={this.state.submitting} />
                 </FlexContainer>
