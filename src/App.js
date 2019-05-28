@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import AboutPage from './components/AboutPage';
 import Disclaimer from './components/Disclaimer';
 import MessageForm from './components/MessageForm';
@@ -32,6 +33,7 @@ class App extends Component {
           <Route path="/:id" component={MessageDisplay} />
           <Redirect to="/" />
         </Switch>
+        <Footer />
       </AppWrapper>
     );
   }
