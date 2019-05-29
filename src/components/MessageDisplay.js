@@ -41,7 +41,7 @@ class MessageDisplay extends React.Component {
             reveal: moment.toString,
             revealed: false,
             loading: true,
-            message: 'This message has not been revealed yet.'
+            message: "This message does not exist."
         }
     }
 
@@ -49,18 +49,23 @@ class MessageDisplay extends React.Component {
         var id = window.location.pathname.split("/")[1];
         axios.get("/.netlify/functions/readmessage/" + id)
         .then((response) => {
+            /* Localize the reveal and creation dates */
             const reveal = moment(response.data.reveal).format("llll");
             const created = moment(response.data.created).format("llll");
             this.setState({reveal});
             this.setState({created});
+
+            /* Display the message, unless it has not been revealed */
             if ("message" in response.data) {
                 this.setState({revealed: true});
                 this.setState({message: response.data.message});
+            } else {
+                this.setState({message: "This message has not been revealed yet."});
             }
             this.setState({loading: false});
         })
         .catch((error) => {
-            console.log("ERROR: " + error);
+            console.log(error);
             this.setState({loading: false});
         });
     }
