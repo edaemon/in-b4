@@ -13,15 +13,23 @@ const FooterBlock = styled.div`
     }
 `
 
+const Link = styled.a`
+    text-decoration: none;
+    :visited {
+        color: slategray;
+    }
+    :link {
+        color: slategray;
+    }
+`
+
 class Footer extends React.Component {
     render() {
         return(
             <FooterBlock>
-                <p>
-                    <a href="/about">About</a> |&nbsp;
-                    <a href="/terms">Terms and Conditions</a> |&nbsp;
-                    <a href="/disclaimer">Disclaimer</a>
-                </p>
+                <Link href="/about">About</Link> |&nbsp;
+                <Link href="/terms">Terms and Conditions</Link> |&nbsp;
+                <Link href="/disclaimer">Disclaimer</Link>
             </FooterBlock>
         );
     }

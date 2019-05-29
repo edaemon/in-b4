@@ -88,6 +88,11 @@ const TermsAndConditions = styled.div`
     }
 `
 
+const Link = styled.a`
+    text-decoration: underline;
+    color: slategray;
+`
+
 moment.locale("en");
 momentLocalizer();
 ErrorModal.setAppElement('body');
@@ -151,7 +156,7 @@ class MessageForm extends React.Component {
                 </ErrorModal>
                 <TextArea value={this.state.message} onChange={this.handleMessageChange} placeholder={this.state.placeholder} maxLength="1000" />
                 <TermsAndConditions>
-                    By clicking 'Submit' you agree to the <a href="/terms">terms and conditions</a>.
+                    By clicking 'Submit' you agree to the <Link href="/terms">terms and conditions</Link>.
                 </TermsAndConditions>
                 <FlexContainer justifySpaceBetween={true} itemsFlexStart>
                     <DateTimePickerBlock>

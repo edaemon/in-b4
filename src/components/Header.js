@@ -13,12 +13,7 @@ const TitleBlock = styled.h1`
 
 const Title = styled.a`
     text-decoration: none;
-    :visited {
-        color: steelblue;
-    }
-    :link {
-        color: steelblue;
-    }
+    color: steelblue;
 `
 
 const ModalButton = styled.button`
