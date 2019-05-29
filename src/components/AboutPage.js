@@ -23,8 +23,8 @@ class AboutPage extends React.Component {
                     which I set to reveal the message after a few hours:
                 </p>
                 <p>
-                    <a href="https://in-b4.com/233090306997748233">
-                    https://in-b4.com/233090306997748233</a>
+                    <a href="https://in-b4.com/233655257752666628">
+                    https://in-b4.com/233655257752666628</a>
                 </p>
                 <p>
                     Once the message is revealed you'll be able to see who responded as
