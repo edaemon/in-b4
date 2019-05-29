@@ -42,7 +42,7 @@ exports.handler = async(event, context) => {
         return { statusCode: 200, body: JSON.stringify(responseData) };
     }).catch((error) => {
         /* Log the error and return a 500 */
-        console.log("Retrieval error: " + error);
-        return { statusCode: 500, body: "Error: " + error };
+        console.log("Retrieval error (ID: " + id + "): " + error);
+        return { statusCode: 500, body: "Error reading message" };
     });
 };
